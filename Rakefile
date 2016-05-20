@@ -2,7 +2,6 @@ require 'yaml'
 
 namespace :lint do
   begin
-    gem 'rspec', '~> 2.4'
     require 'rspec/core/rake_task'
 
     RSpec::Core::RakeTask.new(:yaml)
@@ -13,7 +12,7 @@ namespace :lint do
   end
 
   task :cve do
-    Dir.glob('gems/*/*.yml') do |path|
+    Dir.glob('{gems,libraries,rubies}/*/*.yml') do |path|
       advisory = YAML.load_file(path)
 
       unless advisory['cve']

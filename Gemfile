@@ -1,3 +1,9 @@
 source 'https://rubygems.org'
-gem 'pry'
-gem 'mechanize'
+
+gem 'rspec'
+gem 'rake'
+
+group :development do
+  gem 'pry'
+  gem 'nokogiri'
+end
